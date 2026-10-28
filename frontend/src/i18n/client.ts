@@ -14,6 +14,12 @@ const dict: Dict = {
   'Работы': { kz: 'Жұмыстар', en: 'Portfolio' },
   '{n} мин': { kz: '{n} мин', en: '{n} min' },
   'Выбрать': { kz: 'Таңдау', en: 'Select' },
+  'Список': { kz: 'Тізім', en: 'List' },
+  'На карте': { kz: 'Картада', en: 'On Map' },
+  'мест': { kz: 'орын', en: 'places' },
+  '{n} мест': { kz: '{n} орын', en: '{n} places' },
+  'Расположение': { kz: 'Орналасқан жері', en: 'Location' },
+  'Подробнее': { kz: 'Толығырақ', en: 'Details' },
 }
 
 export default dict

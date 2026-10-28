@@ -110,6 +110,10 @@ export type Master = {
   specialty: string
   district: string
   city: string
+  address?: string
+  coordinates?: { lat: number; lng: number }
+  whatsapp?: string | null
+  instagram?: string | null
   rating: number
   reviews: number
   priceFrom: number
@@ -129,6 +133,10 @@ export const masters: Master[] = [
     specialty: 'Комплекс услуг красоты',
     district: 'Бостандыкский',
     city: 'Алматы',
+    address: 'ул. Сатпаева, 30/8, уг. ул. Байтурсынова',
+    coordinates: { lat: 43.2355, lng: 76.9230 },
+    whatsapp: '+77071112233',
+    instagram: 'luna_salon_almaty',
     rating: 4.9,
     reviews: 342,
     priceFrom: 6000,
@@ -157,6 +165,10 @@ export const masters: Master[] = [
     specialty: 'Мужские стрижки и бритьё',
     district: 'Медеуский',
     city: 'Алматы',
+    address: 'пр. Достык, 89, уг. ул. Жолдасбекова',
+    coordinates: { lat: 43.2420, lng: 76.9580 },
+    whatsapp: '+77054445566',
+    instagram: 'boss_barber_kz',
     rating: 4.8,
     reviews: 521,
     priceFrom: 5000,
@@ -185,6 +197,10 @@ export const masters: Master[] = [
     specialty: 'Маникюр, педикюр, дизайн',
     district: 'Алмалинский',
     city: 'Алматы',
+    address: 'ул. Желтоксан, 140, офис 4',
+    coordinates: { lat: 43.2505, lng: 76.9380 },
+    whatsapp: '+77773332211',
+    instagram: 'dinara_nails_almaty',
     rating: 5.0,
     reviews: 187,
     priceFrom: 5500,
@@ -213,6 +229,10 @@ export const masters: Master[] = [
     specialty: 'Брови, ресницы, ламинирование',
     district: 'Ауэзовский',
     city: 'Алматы',
+    address: 'мкр. 4, дом 12, пр. Абая',
+    coordinates: { lat: 43.2200, lng: 76.8650 },
+    whatsapp: '+77005556677',
+    instagram: null,
     rating: 4.9,
     reviews: 264,
     priceFrom: 4500,
@@ -241,6 +261,10 @@ export const masters: Master[] = [
     specialty: 'Косметология, уход за кожей',
     district: 'Бостандыкский',
     city: 'Алматы',
+    address: 'ул. Тимирязева, 42, БЦ Экспо-Сити',
+    coordinates: { lat: 43.2260, lng: 76.9120 },
+    whatsapp: '+77028889900',
+    instagram: 'derma_plus_kz',
     rating: 4.7,
     reviews: 156,
     priceFrom: 12000,
@@ -269,6 +293,10 @@ export const masters: Master[] = [
     specialty: 'Массаж и SPA-ритуалы',
     district: 'Медеуский',
     city: 'Алматы',
+    address: 'пр. Назарбаева, 226, уг. ул. Ганди',
+    coordinates: { lat: 43.2300, lng: 76.9450 },
+    whatsapp: '+77017778899',
+    instagram: 'tishina_spa_kz',
     rating: 4.9,
     reviews: 298,
     priceFrom: 10000,
@@ -297,6 +325,10 @@ export const masters: Master[] = [
     specialty: 'Мужские стрижки, фейды',
     district: 'Наурызбайский',
     city: 'Алматы',
+    address: 'мкр. Калкаман-2, ул. Ашимова, 18',
+    coordinates: { lat: 43.2140, lng: 76.8180 },
+    whatsapp: '+77089990011',
+    instagram: null,
     rating: 4.8,
     reviews: 96,
     priceFrom: 4000,
@@ -324,6 +356,10 @@ export const masters: Master[] = [
     specialty: 'Стрижки и окрашивание',
     district: 'Алмалинский',
     city: 'Алматы',
+    address: 'ул. Макатаева, 51, уг. ул. Валиханова',
+    coordinates: { lat: 43.2640, lng: 76.9530 },
+    whatsapp: null,
+    instagram: 'lokon_hair_kz',
     rating: 4.6,
     reviews: 211,
     priceFrom: 5000,

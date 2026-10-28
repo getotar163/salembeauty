@@ -5,6 +5,8 @@ import BookingFlow from './BookingFlow'
 import BusinessProfile from './BusinessProfile'
 import { useT } from '../i18n'
 import { Icon, Stars, VenueBadge, formatPrice } from './ui'
+import { FullMapView, SingleLocationMap } from './MapView'
+import SocialContactBlock from './SocialContactBlock'
 
 export default function ClientMode({
   onConfirmBooking,
@@ -16,6 +18,7 @@ export default function ClientMode({
   const [activeCat, setActiveCat] = useState<string | null>(null)
   const [selected, setSelected] = useState<Master | null>(null)
   const [bizOpen, setBizOpen] = useState(false)
+  const [viewMode, setViewMode] = useState<'list' | 'map'>('list')
   // booking overlay: which master + optional pre-picked service
   const [booking, setBooking] = useState<{ master: Master; service: Service | null } | null>(null)
 
@@ -78,7 +81,46 @@ export default function ClientMode({
         />
       </div>
 
-      {/* Salon ad / promo banners */}
+      {/* View mode toggle: List vs Map */}
+      <div className="mt-3 flex items-center justify-between">
+        <div className="inline-flex rounded-full border border-border bg-card p-1 shadow-sm">
+          <button
+            onClick={() => setViewMode('list')}
+            className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-semibold transition active:scale-95 ${
+              viewMode === 'list'
+                ? 'bg-primary text-primary-foreground shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            <span>📋</span> {t('Список')}
+          </button>
+          <button
+            onClick={() => setViewMode('map')}
+            className={`flex items-center gap-1.5 rounded-full px-4 py-1.5 text-xs font-semibold transition active:scale-95 ${
+              viewMode === 'map'
+                ? 'bg-primary text-primary-foreground shadow-sm'
+                : 'text-muted-foreground hover:text-foreground'
+            }`}
+          >
+            <span>🗺️</span> {t('На карте')}
+          </button>
+        </div>
+        <span className="text-xs font-medium text-muted-foreground">
+          {t('{n} мест', { n: results.length })}
+        </span>
+      </div>
+
+      {viewMode === 'map' ? (
+        <div className="mt-4">
+          <FullMapView
+            masters={results}
+            onSelectMaster={(m) => setSelected(m)}
+            onBookMaster={(m) => setBooking({ master: m, service: null })}
+          />
+        </div>
+      ) : (
+        <>
+          {/* Salon ad / promo banners */}
       <section className="mt-5 -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-1 no-scrollbar">
         {promos.map((p) => (
           <button
@@ -192,6 +234,8 @@ export default function ClientMode({
           </div>
         )}
       </section>
+      </>
+    )}
 
       {overlay}
     </div>
@@ -312,6 +356,28 @@ function MasterDetail({
                 <img src={g} alt="" className="h-full w-full object-cover" />
               </div>
             ))}
+          </div>
+
+          {/* Individual Social Contacts for this salon/master */}
+          {(master.whatsapp || master.instagram) && (
+            <div className="mt-7">
+              <SocialContactBlock
+                links={{
+                  whatsapp: master.whatsapp,
+                  instagram: master.instagram,
+                }}
+              />
+            </div>
+          )}
+
+          {/* Connected Location Map */}
+          <div className="mt-7">
+            <SingleLocationMap
+              name={master.name}
+              address={master.address}
+              coordinates={master.coordinates}
+              venueType={master.venueType}
+            />
           </div>
         </div>
       </div>

@@ -21,7 +21,6 @@ import RoleSwitcherSheet from './components/RoleSwitcherSheet'
 import StaffSupportModal from './components/StaffSupportModal'
 import Chats from './components/Chats'
 import AuthModal, { type AuthMode, type AuthProfile, type AuthRole } from './components/AuthModal'
-import SocialContactBlock, { type SocialLinks } from './components/SocialContactBlock'
 import { LangProvider, translate, useT, type Lang } from './i18n'
 import {
   initialBonusBalance,
@@ -118,12 +117,6 @@ export default function App() {
     help: tr('Поддержка'),
     city: tr('Алматы'),
   }
-
-  // Demo social links — in a real app these come from the business profile API
-  const [socialLinks] = useState<SocialLinks>({
-    whatsapp: '+77001234567',
-    instagram: 'salembeauty.kz',
-  })
 
   const spendBonus = (amount: number, label: string) => {
     if (amount <= 0) return
@@ -273,10 +266,6 @@ export default function App() {
               ? tr('Салоны, барбершопы и частные мастера — запись в пару касаний.')
               : tr('Вакансии в салонах и студиях. Отклик в один тап.')}
           </p>
-          {/* Social links block — hidden if no data */}
-          <div className="mt-4">
-            <SocialContactBlock links={socialLinks} />
-          </div>
         </div>
       )}
 

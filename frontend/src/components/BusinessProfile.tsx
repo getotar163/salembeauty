@@ -4,6 +4,8 @@ import { useT } from '../i18n'
 import BookingFlow from './BookingFlow'
 import Checkout from './Checkout'
 import { Icon, Stars, formatPrice } from './ui'
+import SocialContactBlock from './SocialContactBlock'
+import { SingleLocationMap } from './MapView'
 
 /* ---------- Business data (public profile of a barbershop + cosmetics store) ---------- */
 
@@ -16,6 +18,9 @@ const business = {
   reviews: 412,
   address: 'пр. Абая, 52, Алматы',
   hours: 'Ежедневно 10:00 – 22:00',
+  whatsapp: '+77019876543',
+  instagram: 'gentlemenlab.kz',
+  coordinates: { lat: 43.2389, lng: 76.9152 },
 }
 
 type ServiceGroup = { title: string; items: Service[] }
@@ -175,6 +180,21 @@ export default function BusinessProfile({
                 {t('Открыто')}
               </span>
             </span>
+          </div>
+
+          {/* Social Contact Block for this business */}
+          <div className="mt-4">
+            <SocialContactBlock links={{ whatsapp: business.whatsapp, instagram: business.instagram }} />
+          </div>
+
+          {/* Location on Map */}
+          <div className="mt-4">
+            <SingleLocationMap
+              name={name}
+              address={business.address}
+              coordinates={business.coordinates}
+              venueType="barbershop"
+            />
           </div>
         </div>
       </div>
