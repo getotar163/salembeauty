@@ -1,0 +1,12 @@
+{
+  "name": "salembeauty-app",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "scripts": {
+    "build": "bash build.sh",
+    "start": "cd backend && npm run start:prod"
+  }
+}
