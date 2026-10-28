@@ -1,0 +1,45 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+build/
+.next/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Uploads
+uploads/
+
+# Coverage
+coverage/
+
+# Docker
+postgres_data/
+
+# Figma
+.figma/
+
+# Archives
+*.zip
+*.tar.gz
+
+# Antigravity
+.gemini/
