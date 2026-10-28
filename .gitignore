@@ -34,9 +34,6 @@ coverage/
 # Docker
 postgres_data/
 
-# Figma
-.figma/
-
 # Archives
 *.zip
 *.tar.gz

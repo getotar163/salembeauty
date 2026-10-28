@@ -3,7 +3,11 @@ import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'node:path'
 
-import siteConfiguration from './.figma/make/site.json'
+const siteConfiguration = {
+  title: 'SalemBeauty — Красота, запись и стиль',
+  description: 'SalemBeauty — современный сервис онлайн-записи к топ-мастерам и в салоны красоты.',
+  robots: { index: true },
+}
 
 // Vite config — https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -26,7 +30,7 @@ export default defineConfig(({ mode }) => {
     ],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, './src'),
+        '@': path.resolve(process.cwd(), './src'),
       },
     },
     server: {

@@ -1,0 +1,11 @@
+{
+  "title": "SalemBeauty — Красота, запись и стиль",
+  "description": "SalemBeauty — современный сервис онлайн-записи к топ-мастерам и в салоны красоты.",
+  "robots": {
+    "index": false
+  },
+  "accessibility": {
+    "addBypassLinks": false,
+    "ignoreReducedMotion": false
+  }
+}
